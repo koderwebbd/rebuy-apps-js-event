@@ -1,0 +1,117 @@
+<script>
+/*let intervalCheck = 0;
+const interval = setInterval(() => {
+  const rebuyWidget = $(".rebuy-cart__flyout-recommendations");
+  if (rebuyWidget.length > 0 || ++intervalCheck == 200) {
+    clearInterval(interval);
+  }
+
+  if (rebuyWidget.length > 0) {
+    const customWidget = $('.rebuy-cart-installments');
+    customWidget.appendTo(rebuyWidget);
+    customWidget.css("display", "block");
+  }
+}, 100);*/
+</script>
+<style>
+      /*.cart__footer{
+        display: flex;
+      }*/
+      /*button.button.button--xl.w-full{
+        display: block !important;
+      }*/
+      /*.MuiBox-root img[alt="Your Image"] {
+          margin: 0 !important;
+          margin-top: 0 !important;
+      }*/
+      button.rebuy-button.rebuy-cart__checkout-button.block {
+          display: none;
+      }
+      .duplicate-checkout{
+        width: 100%;
+      }
+    </style>
+
+
+    <div class="cart_wrapper rebuy-cart__flyout-item">
+      <div class="cart__footer1"></div>
+    </div>
+
+
+    <div class="duplicate-checkout" style="display: none;">
+      <button type="button" class="rebuy-button-two rebuy-button rebuy-cart__checkout-buttons block"><span><i class="rebuy-button-icon prefix fas fa-lock"></i> Cart <i class=""></i></span></button>
+    </div>
+    <script>
+      // document.addEventListener('rebuy:smartcart.init', (event) => {
+      //     console.log('rebuy:smartcart.init event', event.detail);
+      // });
+      // document.addEventListener('rebuy:smartcart.ready', (event) => {
+      //     const smartcart = event.detail.smartcart;
+
+      //     console.log('rebuy:smartcart.ready: smartcart', smartcart);
+      // });
+      // document.addEventListener('rebuy:smartcart.show', (event) => {
+      //     const smartcart = event.detail.smartcart;
+
+      //     console.log('rebuy:smartcart.show: smartcart', smartcart);
+      // });
+
+      document.addEventListener('rebuy:smartcart.init', (event) => {
+          console.log('rebuy:smartcart.init event', event.detail);
+
+          
+          // const rebuyWidget = $(".rebuy-cart__flyout-recommendations");
+          
+          // let intervalCheck = 0;
+          // const interval = setInterval(() => {
+          //   const rebuyWidget = $(".rebuy-cart__flyout-recommendations");
+          //   if (rebuyWidget.length > 0 || ++intervalCheck == 200) {
+          //     clearInterval(interval);
+          //   }
+
+          //   if (rebuyWidget.length > 0) {
+          //     const customWidget = $('.cart__footer');
+          //     customWidget.appendTo(rebuyWidget);
+          //     //customWidget.css("display", "block");
+          //   }
+          // }, 100);
+      });
+
+      document.addEventListener('rebuy:smartcart.show', (event) => {
+          const smartcart = event.detail.smartcart;
+
+          const rebuyWidget = $(".rebuy-cart__flyout-content");
+          if (rebuyWidget.length > 0) {
+              const customWidget = $('.cart_wrapper');
+              customWidget.appendTo(rebuyWidget);
+              //customWidget.css("display", "block");
+          }
+
+          let rebuyWidgetCheckoutButton = $('.rebuy-cart__flyout-actions');
+          
+          if (rebuyWidgetCheckoutButton.length > 0) {
+            rebuyWidgetCheckoutButton.css("display", "none !important");
+
+            const duplicatCheckout = $('.duplicate-checkout');
+            duplicatCheckout.appendTo(rebuyWidgetCheckoutButton);
+            duplicatCheckout.css("display", "block");
+
+            let rebuyWidgetCheckoutButtonSecond = document.querySelector('.rebuy-button-two');
+            
+            //console.log('ok', rebuyWidgetCheckoutButtonSecond)
+
+
+            rebuyWidgetCheckoutButtonSecond.addEventListener('click', function(evt){
+              evt.preventDefault();
+              console.log('click')
+
+              window.location.href = '/cart'
+            })
+          }
+          
+
+          
+      });
+
+    </script>
+    {% comment %}End working by KoderWeb{% endcomment %}
